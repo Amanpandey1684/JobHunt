@@ -1,7 +1,6 @@
-import { type } from "@testing-library/user-event/dist/type";
 import mongoose from "mongoose";
 
-const jobScheman = new mongoose.Schema({
+const jobSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -17,6 +16,10 @@ const jobScheman = new mongoose.Schema({
         type: Number,
         required: true
     },
+    experienceLevel:{
+        type:Number,
+        required:true,
+    },
     location: {
         type: String,
         required: true
@@ -31,15 +34,15 @@ const jobScheman = new mongoose.Schema({
     },
     company: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Company',
+        ref: 'Company',
         required: true
     },
-    created_by :{
+    created_by: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'User',
+        ref: 'User',
         required: true
     },
-    applications:[
+    applications: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Application',

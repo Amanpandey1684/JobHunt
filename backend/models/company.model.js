@@ -1,24 +1,27 @@
-import { type } from "@testing-library/user-event/dist/type";
 import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+    name:{
+        type:String,
+        required:true,
+        unique:true
     },
-    description: {
-        type: String,
+    description:{
+        type:String, 
     },
-    website: {
-        type: String,
+    website:{
+        type:String 
     },
-    logo: {
-        type: String, //URL for company logo
+    location:{
+        type:String 
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+    logo:{
+        type:String // URL to company logo
     },
-},{timestamps:true});
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    }
+},{timestamps:true})
 export const Company = mongoose.model("Company", companySchema);
